@@ -16,10 +16,41 @@ local function mtpoimap_get_map_name(title, escape)
   return name
 end
 
+local function mtpoimap_parse_escapes(text)
+  local esctab = {
+    ["\\r"] = "\r",
+    ["\\n"] = "\n",
+    ["\\t"] = "\t",
+  }
+
+  text = string.gsub(text, "%%", "<#>!__PERCENT__!<#>")
+
+  for i, o in pairs(esctab) do
+    text = string.gsub(text, "([^\\\\])(" .. i .. ")", "%1" .. o)
+  end
+
+  text = string.gsub(text, "<#>!__PERCENT__!<#>", "%%%%")
+
+  return text
+end
+
+local function mtpoimap_icon_aliases(color)
+  local colortab = {
+    ["violet"] = "purple",
+    ["grey"  ] = "gray",
+  }
+
+  for i, o in pairs(colortab) do
+    color = string.gsub(color, "(" .. i .. ")", o)
+  end
+
+  return color
+end
+
 local function mtpoimap_formspec_base()
   return [=[
     formspec_version[4]
-    size[12,12]
+    size[12,12.5]
   ]=]
 end
 
@@ -28,7 +59,7 @@ local function mtpoimap_formspec_title(title)
 end
 
 local function mtpoimap_formspec_map(file)
-  return "background[0.5,1;11,10.5;" .. minetest.formspec_escape(file) .. "]"
+  return "background[0.5,1;11,11;" .. minetest.formspec_escape(file) .. "]"
 end
 
 local function mtpoimap_formspec_pois(pois)
@@ -46,9 +77,9 @@ local function mtpoimap_formspec_pois(pois)
     local x, y, icon, text = string.match(poi, "([^,]+),([^|]+)|([^|]+)|%s*(.*)")
 
     x = (tonumber(x) + 1.0) / 2 * 11.0 - 0.1
-    y = (tonumber(y) + 1.0) / 2 * 10.5 - 0.1
-    icon = string.match(icon, "^%s*(.-)%s*$")
-    text = string.gsub(text, "\\n", "\n")
+    y = (tonumber(y) + 1.0) / 2 * 11.0 - 0.1
+    icon = mtpoimap_icon_aliases(string.match(icon, "^%s*(.-)%s*$"))
+    text = mtpoimap_parse_escapes(text)
 
     local rect = string.format("%f,%f;0.2,0.2", x, y)
 
