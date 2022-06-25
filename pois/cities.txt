@@ -1,0 +1,6 @@
+-0.40, -0.35 | red    | Boston\nCapital of Massachusetts
+ 0.05, -0.20 | orange | Rome\nCapital of Italy
+ 0.75, -0.15 | yellow | Tokyo\nCapital of Japan
+ 0.80,  0.70 | green  | Sydney\nCity in Australia
+ 0.05,  0.60 | cyan   | Cape Town\nCity in South Africa
+-0.48,  0.55 | blue   | Santiago\nCapital of Chile
