@@ -1,0 +1,11 @@
+ 0.401, -0.883 | yellow | Swampy Place\n(57, 945)\n \nNorth End of Yellow Line
+ 0.401, -0.418 | yellow | Sakura Park\n(57, 531)
+ 0.401,  0.235 | yellow | Colosseum (Yellow Line)\n(57, 56)\n \nConnects to: Green Line
+ 0.416,  0.152 | green  | Colosseum (Green Line)\n(69, 182)\n \nConnects to: Yellow Line\nNorth End of Green Line
+ 0.353,  0.300 | green  | Ma Pi Nena Kon\n(0, 0)\n \nCenter of the map\nUseful floating city\nWarp: /spawn 0
+ 0.583,  0.418 | green  | Obsidian Tower\n(249, -97)\n \nEast End of Green Line\n \nAccess to Obsidian Tower\nWarp: /spawn 1
+ 0.088,  0.838 | yellow | Monotopia (SPAWN)\n(-201, -485)\n \nBig city with lots of space\nWarp: /spawn 2
+-0.770,  0.838 | yellow | Purple Mountain Majesty\n(-720, -485)\n \nSouth End of Yellow Line
+-0.862, -0.888 | gray   | Open Survival Minetest Map v2
+-0.862, -0.858 | gray   | 2022-06-25
+ 0.650,  0.954 | gray   | Created with MetroMapMaker.com
