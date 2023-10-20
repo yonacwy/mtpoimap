@@ -88,7 +88,10 @@ local function mtpoimap_formspec_pois(pois)
 
   file:close()
 
-  return "container[0.5,1]" .. _pois .. "container_end[]"
+  return "scroll_container[12,12;11,11;scrbar;down;0.1]" .. _pois ..
+                "scrollbar[11.5,1;0.3,11;vertical;scrbar;0]".. _pois ..
+                "scrollbaroptions[10;1000;10;100;10]".. _pois ..
+         "scroll_container_end[]"
 end
 
 local function mtpoimap_formspec_reload()
